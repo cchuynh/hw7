@@ -2,18 +2,24 @@ var video = document.querySelector("#player1");
 
 window.addEventListener("load", function() {
 	console.log("Good job opening the window")
-
-	console.log("Auto play is set to false")
-	console.log("Loop is set to false")
+	
 	video.autoplay = false;
+	console.log("Auto play is set to false")
+
+	console.log("Loop is set to false")
 	video.loop = false;
 });
 
 document.querySelector("#play").addEventListener("click", function() {
-	console.log("Play Video")
-	document.querySelector("#volume").innerHTML = video.volume * 100 + "%"
-	console.log(video.volume * 100 + "%")
+	console.log("Play Video");
+	document.querySelector('#volume').innerHTML = video.volume * 100 + "%";
 	video.play();
+});
+
+document.querySelector("#slider").addEventListener("change", function() {
+	var vol = document.getElementById('slider').value;
+	document.querySelector('#volume').innerHTML = vol + "%";
+	video.volume = vol/100
 });
 
 document.querySelector("#pause").addEventListener("click", function() {
